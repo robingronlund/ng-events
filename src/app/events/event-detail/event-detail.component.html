@@ -1,0 +1,114 @@
+<header class="header">
+    <h1 class="header-title">Event Details</h1>
+    <h4 *ngIf="event">{{event.name}}</h4>
+    <div class="clear"> </div>
+</header>
+<hr/>
+
+<div class="row">
+    <div class="col-md-4">
+        <div *ngIf="event" class="form-group">
+            <label for="event">Name:</label>
+            <span for="event">{{event.name}}</span>
+        </div>
+        <div *ngIf="event" class="form-group">
+            <label for="event">Type:</label>
+            <span for="event">{{event.type}}</span>
+        </div>
+        <div *ngIf="event" class="form-group">
+            <label for="event">Host:</label>
+            <span for="event">{{event.host}}</span>
+        </div>
+        <div *ngIf="event" class="form-group">
+            <label for="event">Start:</label>
+            <span for="event">{{event.startDate | date:'yyyy-MM-dd'}}</span>
+        </div>
+        <div *ngIf="event" class="form-group">
+            <label for="event">End:</label>
+            <span for="event">{{event.endDate | date:'yyyy-MM-dd'}}</span>
+        </div>
+        <div *ngIf="event" class="form-group">
+            <label for="event">City:</label>
+            <span for="event">{{event.city}}</span>
+        </div>
+        <div *ngIf="event" class="form-group">
+            <label for="event">Address:</label>
+            <span for="event">{{event.address}}</span>
+        </div>
+        <div *ngIf="event" class="form-group">
+            <label for="event">Venue:</label>
+            <span for="event">{{event.venue}}</span>
+        </div>
+        <div *ngIf="event" class="form-group">
+            <label for="event">Country:</label>
+            <span for="event">{{event.country}}</span>
+        </div>
+        <div *ngIf="event" class="form-group">
+            <label for="event">Contact:</label>
+            <span for="event">{{event.contact}}</span>
+        </div>
+        <div *ngIf="event" class="form-group">
+            <label for="event">Website:</label>
+            <span for="event">{{event.website}}</span>
+        </div>
+        <div *ngIf="event" class="form-group">
+            <label for="event">Wifi:</label>
+            <span for="event">{{event.wifiname}}</span>
+        </div>
+        <div *ngIf="event" class="form-group">
+            <label for="event">WifiPwd:</label>
+            <span for="event">{{event.wifipwd}}</span>
+        </div>
+    </div>
+</div>
+
+<header class="header">
+    <h1 class="header-title-collapse" data-toggle="collapse" data-target="#list">Candidates<span class="badge" style="margin-left: 15px;">{{numberOfCandidates}}</span></h1>
+    <div class="clear"> </div>
+</header>
+<hr/>
+
+
+
+<div id="list" class="row collapse">
+    <div class="table-responsive col-md-12">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <td>Show Details</td>
+                    <td>Thumbnail</td>
+                    <td>Firstname</td>
+                    <td>Lastname</td>
+                    <td>Email</td>
+                    <td>Education</td>
+                    <td>Interests</td>
+                    <td>Status</td>
+                    <td>Type</td>
+                    <td>YOB</td>
+                    <td>Phone</td>
+                    <td>Reg. date</td>
+                    <td>Gender</td>
+                    <td>Process</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let candidate of candidates">
+                    <td><a [routerLink]="['/home/candidates', candidate.candidateUuid]" routerLinkActive="active" class="btn btn-primary">Details</a></td>
+                    <td><img *ngIf="candidate.thumbnail?.length > 0" [src]="'data:image/jpg;base64,'++candidate.thumbnail" style="width:128px;height:105px;"></td>
+                    <td>{{candidate.firstName}}</td>
+                    <td>{{candidate.lastName}}</td>
+                    <td>{{candidate.email}}</td>
+                    <td>{{candidate.education}}</td>
+                    <td>{{candidate.interests}}</td>
+                    <td>{{candidate.status}}</td>
+                    <td>{{candidate.type}}</td>
+                    <td>{{candidate.yearOfBirth}}</td>
+                    <td>{{candidate.phone}}</td>
+                    <td>{{candidate.registrationDate | date: 'yyyy-MM-dd'}}</td>
+                    <td>{{candidate.gender}}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

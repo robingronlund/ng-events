@@ -1,0 +1,22 @@
+import com.moowork.gradle.node.NodeExtension
+import com.moowork.gradle.node.variant.VariantBuilder
+
+plugins {
+  id "com.moowork.node" version "1.1.1"
+}
+
+node {
+  version = '6.9.5'
+  npmVersion = '4.3.0'
+  download = true
+}
+
+String nodeExecutable() {
+  NodeExtension nodeExt = NodeExtension.get(project)
+  return new VariantBuilder(nodeExt).build().nodeExec
+}
+
+task build(type: NodeTask, dependsOn: 'npmInstall') {
+  script = file('node_modules/@angular/cli/bin/ng')
+  args = ['build', '--prod', '--output-path=../../resources/public']
+}

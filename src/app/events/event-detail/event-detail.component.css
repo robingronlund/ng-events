@@ -1,0 +1,14 @@
+thead {
+  color: #212121;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.table tr.active td {
+  background-color:#1d557f !important;
+  color: white;
+}
+
+.form-control {
+  width: 50%;
+}

@@ -1,0 +1,14 @@
+<header class="header">
+  <h1 class="header-title">Events</h1>
+  <div class="clear"> </div>
+</header>
+<hr/>
+
+
+<div class="row">
+  <div *ngFor="let event of events" class="col-md-4">
+    <event-thumbnail [event]="event" [routerLink]="['./', event.uuid]"></event-thumbnail>
+  </div>
+</div>
+
+<button routerLink="new" data-toggle="tooltip" id="fixedButton" title="Create new event" type="button" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-plus"></span></button>

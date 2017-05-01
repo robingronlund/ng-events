@@ -1,0 +1,22 @@
+<div class="login-container">
+    <div class="title">
+        <h1>Sign in</h1>
+    </div>
+    <div class="panel-body">
+        <form autocomplete="off" [formGroup]="loginForm" (ngSubmit)="login($event)" novalidate>
+            <br/>
+            <div class="form-group">
+                <input class="form-control input-lg" formControlName="username" type="text" placeholder="Username..." required>
+            </div>
+            <br/>
+            <div class="form-group">
+                <input class="form-control input-lg" formControlName="password" type="password" placeholder="Password" required>
+            </div>
+            <br/>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-lg"  [disabled]="loginForm.invalid">Log in</button>
+            </div>
+        </form>
+        <br/>
+    </div>
+</div>

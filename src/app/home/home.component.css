@@ -1,0 +1,72 @@
+.container-fluid {
+    padding: 0;
+    margin: 0;
+    
+}
+.navbar {
+    background-color: #2768a9;
+    height: 70px;
+    min-height: 70px;
+    padding: 0;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.24);
+    z-index: 5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    border: 0;
+    border-radius: 0;
+}
+
+.navbar-header {
+    padding-top: 13px;
+    padding-left: 10px
+}
+
+.navbar-left>img {
+    width: 200px;
+}
+
+.nav.navbar-nav {
+    display: inline-block;
+    vertical-align: top;
+    height: auto;
+    padding: 0 0 0 20px;
+    font-size:18px;
+}
+
+
+.navbar-default .navbar-collapse {
+    background-color: #2768a9;
+    border-color: transparent;
+}
+
+.navbar-toggle {
+    border: none;
+    background: transparent !important;
+}
+
+.navbar-toggle:hover{
+    background: transparent !important;
+}
+
+.navbar-toggle .icon-bar {
+    display: block;
+    width: 30px;
+    border-radius: 1px;
+    background-color: #fff;
+    transition: all 0.2s;
+}
+
+.navbar-default .navbar-nav>li>a {
+    line-height: 40px;
+    text-transform: uppercase;
+}
+
+
+
+.navbar-default .navbar-nav > li > a:hover {
+    background-color: #4292d1;
+    color: #fff;
+    
+}

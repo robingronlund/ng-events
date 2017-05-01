@@ -1,0 +1,29 @@
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarCollapse" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a routerLink="/home" class="navbar-left"><img src="assets/images/Consat_Logo.png"></a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="nav navbar-nav">
+                <li class="nav-item"><a class="nav-link text-primary-color" routerLink="/home">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link text-primary-color" [routerLink]="['events']" routerLinkActive="active">Events</a></li>
+                <li class="nav-item"><a class="nav-link text-primary-color" [routerLink]="['candidates']" routerLinkActive="active">Candidates</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a class="nav-link text-primary-color" (click)="logout()">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div style="padding-right: 30px; padding-left: 30px;">
+    <router-outlet></router-outlet>
+</div>
+    

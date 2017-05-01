@@ -1,0 +1,11 @@
+thead {
+  color: #212121;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+#searchDiv {
+  padding-top: 10px;
+  height: 70px;
+    
+}

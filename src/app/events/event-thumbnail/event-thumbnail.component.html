@@ -1,0 +1,22 @@
+<div class="card">
+  <h2>{{event.name | uppercase}}</h2>
+  <div>
+    Host: {{event.host}}
+  </div>
+  <div>
+    <span>Start: {{event.startDate | date: 'yyyy-MM-dd'}}</span>
+    <span>End: {{event.endDate | date: 'yyyy-MM-dd'}}</span>
+  </div>
+  <div>
+    <span>Address: {{event.city}}, {{event.address}}, {{event.country}}</span>
+  </div>
+  <div>
+    Venue: {{event.address}}
+  </div>
+  <div>
+    Contact: {{event.contact}}
+  </div>
+  <div>
+    Website: {{event.website}}
+  </div>
+</div>

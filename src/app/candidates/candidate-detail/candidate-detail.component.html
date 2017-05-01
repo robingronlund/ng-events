@@ -1,0 +1,115 @@
+<header class="header">
+  <h1 class="header-title">Candidate Details</h1>
+  <h4 *ngIf="candidate">{{candidate.firstName}} {{candidate.lastName}}</h4>
+  <div class="clear"> </div>
+</header>
+<hr/>
+
+
+<div class="row">
+  <div class="col-md-4">
+    <form [formGroup]="candidateForm" (ngSubmit)="onSubmit(candidateForm)" novalidate>
+      <div class="form-group" *ngIf="candidate">
+        <label for="firstname">Firstname:</label>
+        <span from="firstname">{{candidate.firstName}}</span>
+      </div>
+      <div class="form-group" *ngIf="candidate">
+        <label for="lastname">Lastname:</label>
+        <span from="lastname">{{candidate.lastName}}</span>
+      </div>
+      <div class="form-group" *ngIf="candidate">
+        <label for="email">E-mail:</label>
+        <span from="email">{{candidate.email}}</span>
+      </div>
+      <div class="form-group" *ngIf="candidate">
+        <label for="education">Education:</label>
+        <span *ngIf="!isEdit" from="education">{{candidate.education}}</span>
+        <input *ngIf="isEdit" formControlName="education" type="text" class="form-control" placeholder="{{candidate.education}}"
+          required>
+      </div>
+      <div class="form-group" *ngIf="candidate">
+        <label for="interests">Interests:</label>
+        <span *ngIf="!isEdit" from="interests">{{candidate.interests}}</span>
+        <input *ngIf="isEdit" formControlName="interests" type="text" class="form-control" placeholder="{{candidate.interests}}">
+      </div>
+      <div class="form-group" *ngIf="candidate">
+        <label for="yearOfBirth">YOB:</label>
+        <span from="yearOfBirth">{{candidate.yearOfBirth}}</span>
+      </div>
+      <div class="form-group" *ngIf="candidate">
+        <label for="phone">Phone:</label>
+        <span *ngIf="!isEdit" from="phone">{{candidate.phone}}</span>
+        <input *ngIf="isEdit" formControlName="phone" type="tel" class="form-control" placeholder="{{candidate.phone}}">
+      </div>
+      <div class="form-group" *ngIf="candidate">
+        <label for="registrationDate">Reg. date:</label>
+        <span>{{candidate.registrationDate}}</span>
+      </div>
+
+      <div class="form-group" *ngIf="candidate">
+        <label for="status">Status:</label>
+        <span>{{candidate.status}}</span>
+        <select *ngIf="isEdit" class="form-control" formControlName="status">
+          <option *ngFor="let status of candidateStatus" [ngValue]="status">{{status}}</option>
+        </select>
+      </div>
+
+      <div class="form-group" *ngIf="candidate">
+        <label for="gender">Gender:</label>
+        <span >{{candidate.gender}}</span>
+        <select *ngIf="isEdit" class="form-control" formControlName="gender">
+          <option *ngFor="let gender of candidateGender" [ngValue]="gender">{{gender}}</option>
+        </select>
+      </div>
+
+      <div class="form-group" *ngIf="candidate">
+        <label for="type">Type:</label>
+        <span >{{candidate.type}}</span>
+        <select *ngIf="isEdit" class="form-control" formControlName="type">
+          <option *ngFor="let type of candidateType" [ngValue]="type">{{type}}</option>
+        </select>
+      </div>
+
+      <div class="row col-md-4">
+        <button *ngIf="isEdit" [disabled]="candidateForm.pristine" type="submit" class="btn btn-success" name=submit>Submit</button>        &nbsp;
+        <button *ngIf="isEdit" [disabled]="candidateForm.pristine" type="reset" class="btn btn-danger" name=revert>Revert</button>
+      </div>
+    </form>
+  </div>
+  <div class="col-sm-2">
+    <button *ngIf="!isEdit" class="btn btn-primary" type="button" data-toggle="modal" data-target="#editModal">Edit</button>
+    <button *ngIf="isEdit" class="btn btn-primary" type="button" (click)="editCancel()">Cancel</button>
+  </div>
+</div>
+
+<!-- TODO: Make this a shared component !-->
+<div id="editModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal header</h4>
+      </div>
+      <div class="modal-body">
+        <p>test yooo</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)='editOK()' data-dismiss="modal" class="btn btn-default">OK</button>
+        <button type="button" (click)='editCancel()' data-dismiss="modal" class="btn btn-default">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header class="header">
+  <h1 class="header-title-collapse" data-toggle="collapse" data-target="#eventDiv">Events<span class="badge" style="margin-left: 15px;">{{numberOfEvents}}</span></h1>
+  <div class="clear"> </div>
+</header>
+<hr/>
+
+
+<div class="row collapse" id="eventDiv">
+  <div *ngFor="let event of events" class="col-md-4">
+    <event-thumbnail [event]="event" [routerLink]="['/home/events', event.uuid]"></event-thumbnail>
+  </div>
+</div>

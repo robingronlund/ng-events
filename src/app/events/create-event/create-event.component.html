@@ -1,0 +1,79 @@
+<header class="header">
+  <h1 class="header-title">Create new event</h1>
+  <div class="clear"> </div>
+</header>
+<hr/>
+
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <form [formGroup]="createEventForm" (ngSubmit)="onSubmit(createEventForm)" novalidate>
+      <div class="form-group">
+        <span>Event name</span>
+        <input class="form-control input-lg" formControlName="name" type="text" required>
+      </div>
+      <div class="form-group">
+        <span>Type</span>
+        <select class="form-control input-lg" formControlName="type" required>
+          <option *ngFor="let type of keys()" [ngValue]="type">{{type}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <span>Host</span>
+        <input class="form-control input-lg" formControlName="host" type="text" required>
+      </div>
+      <div class="form-group">
+        <span>Start date</span>
+        <input class="form-control input-lg" formControlName="startDate" type="date" required placeholder="yyyy-mm-dd">
+      </div>
+      <div class="form-group">
+        <span>End date</span>
+        <input class="form-control input-lg" formControlName="endDate" type="date" required placeholder="yyyy-mm-dd">
+      </div>
+      <div class="form-group">
+        <span>Country</span>
+        <input class="form-control input-lg" formControlName="country" type="text" required>
+      </div>
+      <div class="form-group">
+        <span>City</span>
+        <input class="form-control input-lg" formControlName="city" type="text" required>
+      </div>
+      <div class="form-group">
+        <span>Address</span>
+        <input class="form-control input-lg" formControlName="address" type="text" required>
+      </div>
+      <div class="form-group">
+        <span>Venue</span>
+        <input class="form-control input-lg" formControlName="venue" type="text" required>
+      </div>
+      <div class="form-group">
+        <span>Contact</span>
+        <input class="form-control input-lg" formControlName="contact" type="email" required>
+      </div>
+      <div class="form-group">
+        <span>Website</span>
+        <input class="form-control input-lg" formControlName="website" type="url" required>
+      </div>
+      <div class="form-group">
+        <span>WifiName</span>
+        <input class="form-control input-lg" formControlName="wifiname" type="text" required>
+      </div>
+      <div class="form-group">
+        <span>WifiPwd</span>
+        <input class="form-control input-lg" formControlName="wifipwd" type="text" required>
+      </div>
+      <div class="form-group">
+        <span>Notes</span>
+        <textarea class="form-control input-lg" rows="3" formControlName="notes"></textarea>
+      </div>
+
+
+      <div class="row col-md-12">
+        <button [disabled]="createEventForm.pristine || !createEventForm.valid" type="submit" class="btn btn-success" name=submit>Submit</button>        &nbsp;
+        <button [disabled]="createEventForm.pristine" type="reset" class="btn btn-danger" name=revert>Revert</button>
+      </div>
+      <p>Form Value: {{createEventForm.value | json}}</p>
+    <p>Form Status: {{createEventForm.status}}</p>
+    </form>
+    
+  </div>
+</div>
